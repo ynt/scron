@@ -1,0 +1,17 @@
+[package]
+name = "scron"
+version = "0.1.1"
+authors = ["周建刚 <zhoujg@weipaitang.com>"]
+documentation = "https://docs.rs/cron"
+readme = "README.md"
+description = "A cron expression parser and schedule explorer."
+keywords = [ "cron", "schedule", "repeat", "periodic", "time" ]
+license = "MIT"
+
+[lib]
+name = "cron"
+
+[dependencies]
+chrono = "~0.4"
+nom = "~2.1"
+error-chain = "~0.11.0"
