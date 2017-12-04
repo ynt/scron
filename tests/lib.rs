@@ -1,9 +1,9 @@
-extern crate cron;
+extern crate scron;
 extern crate chrono;
 
 #[cfg(test)]
 mod tests {
-    use cron::{Schedule, TimeUnitField};
+    use scron::{Schedule, TimeUnitField};
     use std::str::FromStr;
     use chrono::*;
 

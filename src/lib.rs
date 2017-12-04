@@ -2,9 +2,9 @@
 //! # Example
 //! ```
 //! extern crate chrono;
-//! extern crate cron;
+//! extern crate scron;
 //!
-//! use cron::Schedule;
+//! use scron::Schedule;
 //! use chrono::Utc;
 //! use std::str::FromStr;
 //!
