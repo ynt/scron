@@ -2,6 +2,24 @@
 A Scron Expression Parser in Rust
 ### Fork from github.com/zslayton/cron
 
+# Task
+```rust
+extern crate scron;
+use scron::Task;
+use scron::Tasks;
+
+
+fn main() {
+    let task = Task::new("test".to_owned(), "0/3 * * * * *", || {
+        println!("haha");
+    });
+
+    let mut tasks = Tasks { task: vec![task] };
+
+    tasks.run();
+}
+```
+
 # scron
 ```rust
 extern crate scron;
