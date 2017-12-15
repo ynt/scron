@@ -41,7 +41,10 @@ extern crate error_chain;
 
 mod time_unit;
 mod schedule;
+mod task;
 pub mod error;
 
 pub use schedule::Schedule;
 pub use time_unit::TimeUnitField;
+pub use task::Task;
+pub use task::Tasks;

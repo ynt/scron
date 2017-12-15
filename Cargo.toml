@@ -1,7 +1,7 @@
 [package]
 name = "scron"
-version = "0.1.2"
-authors = ["周建刚 <zhoujg@weipaitang.com>"]
+version = "0.1.3"
+authors = ["gladmo <mo@gladmo.com>"]
 documentation = "https://docs.rs/scron"
 readme = "README.md"
 description = "A cron expression parser and schedule explorer."
