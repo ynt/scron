@@ -68,6 +68,7 @@ impl Tasks {
                 // thread::spawn(|| (task.func)());
             }
 
+            #![feature(duration_constants)]
             sleep(time::Duration::SECOND)
         }
     }
