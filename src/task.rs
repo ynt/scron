@@ -67,7 +67,6 @@ impl Tasks {
                 // thread::spawn(|| (task.func)());
             }
 
-            println!("in edit")
             sleep(time::Duration::SECOND)
         }
     }
