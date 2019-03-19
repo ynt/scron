@@ -1,6 +1,7 @@
 use super::Schedule;
 use chrono::prelude::*;
 use std::str::FromStr;
+use std::thread::sleep;
 
 pub struct Task {
     pub name: String,
@@ -49,11 +50,12 @@ pub struct Tasks {
 
 // to do new a empty Tasks
 impl Tasks {
-    pub fn add_task(&mut self, task: Task) -> &Self {
+    pub fn new(task: Task) -> Self {
+        Tasks { task: vec![task] }
+    }
 
+    pub fn add_task(&mut self, task: Task) {
         self.task.push(task);
-
-        self
     }
 
     pub fn run(&mut self) {
@@ -64,6 +66,9 @@ impl Tasks {
                 self.task[0].next = self.task[0].spec.after(&self.task[0].next).next().unwrap();
                 // thread::spawn(|| (task.func)());
             }
+
+            println!("in edit")
+            sleep(time::Duration::SECOND)
         }
     }
 }
