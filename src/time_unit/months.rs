@@ -18,6 +18,9 @@ impl TimeUnitField for Months {
     fn inclusive_max() -> Ordinal {
         12
     }
+    fn ordinals(&self) -> &OrdinalSet {
+        &self.0
+    }
     fn ordinal_from_name(name: &str) -> Result<Ordinal> {
         //TODO: Use phf crate
         let ordinal = match name.to_lowercase().as_ref() {
@@ -36,8 +39,5 @@ impl TimeUnitField for Months {
             _ => bail!(ErrorKind::Expression(format!("'{}' is not a valid month name.", name))),
         };
         Ok(ordinal)
-    }
-    fn ordinals(&self) -> &OrdinalSet {
-        &self.0
     }
 }

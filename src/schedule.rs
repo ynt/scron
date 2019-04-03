@@ -55,13 +55,13 @@ impl Schedule {
 
     fn from(seconds: Seconds, minutes: Minutes, hours: Hours, days_of_month: DaysOfMonth, months: Months, days_of_week: DaysOfWeek, years: Years) -> Schedule {
         Schedule {
-            years: years,
-            days_of_week: days_of_week,
-            months: months,
-            days_of_month: days_of_month,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds,
+            years,
+            days_of_week,
+            months,
+            days_of_month,
+            hours,
+            minutes,
+            seconds,
         }
     }
 
@@ -166,7 +166,7 @@ impl Schedule {
     }
 
     /// Like the `upcoming` method, but allows you to specify a start time other than the present.
-    pub fn after<'a, Z>(&'a self, after: &DateTime<Z>) -> ScheduleIterator<'a, Z>
+    pub fn after<Z>(&self, after: &DateTime<Z>) -> ScheduleIterator<Z>
     where
         Z: TimeZone,
     {
@@ -249,7 +249,7 @@ where
     fn new(schedule: &'a Schedule, starting_datetime: &DateTime<Z>) -> ScheduleIterator<'a, Z> {
         ScheduleIterator {
             is_done: false,
-            schedule: schedule,
+            schedule,
             previous_datetime: starting_datetime.clone(),
         }
     }

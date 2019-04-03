@@ -9,10 +9,10 @@ pub struct Task {
     pub spec_str: String,
     pub func: fn(),
     pub spec: Schedule,
-    pub prev: DateTime<Utc>,
-    pub next: DateTime<Utc>,
+    pub prev: DateTime<Local>,
+    pub next: DateTime<Local>,
     pub err_list: Vec<String>,
-    pub err_lmit: i32,
+    pub err_limit: i32,
 }
 
 impl Task {
@@ -24,23 +24,23 @@ impl Task {
             spec = Schedule::from_str("*").unwrap();
         }
 
-        let now = Utc::now();
+        let now = Local::now();
         let next;
-        if let Some(result) = spec.upcoming(Utc).next() {
+        if let Some(result) = spec.upcoming(Local).next() {
             next = result;
         } else {
-            next = now;
+            next = now.clone();
         }
 
         Task {
-            name: name,
+            name,
             spec_str: spec_str.to_owned(),
-            spec: spec,
-            func: func,
+            spec,
+            func,
             prev: now,
-            next: next,
+            next,
             err_list: vec![String::new()],
-            err_lmit: 100,
+            err_limit: 100,
         }
     }
 }
@@ -68,7 +68,7 @@ impl Tasks {
                 // thread::spawn(|| (task.func)());
             }
 
-            sleep(time::Duration::from_secs(1))
+            sleep(time::Duration::from_millis(100))
         }
     }
 }

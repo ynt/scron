@@ -55,7 +55,7 @@ where
     fn includes(&self, ordinal: Ordinal) -> bool {
         self.ordinals().contains(&ordinal)
     }
-    fn iter<'a>(&'a self) -> OrdinalIter<'a> {
+    fn iter(&self) -> OrdinalIter {
         OrdinalIter { set_iter: self.ordinals().iter() }
     }
 
