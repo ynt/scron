@@ -62,7 +62,7 @@ impl Tasks {
     pub fn run(&mut self) {
         self.task[0].next = self.task[0].spec.after(&self.task[0].next).next().unwrap();
         loop {
-            if self.task[0].next <= Utc::now() {
+            if self.task[0].next <= Local::now() {
                 (self.task[0].func)();
                 self.task[0].next = self.task[0].spec.after(&self.task[0].next).next().unwrap();
                 // thread::spawn(|| (task.func)());
