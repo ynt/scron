@@ -1,6 +1,6 @@
 [package]
 name = "scron"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["gladmo <mo@gladmo.com>"]
 documentation = "https://docs.rs/scron"
 readme = "README.md"
